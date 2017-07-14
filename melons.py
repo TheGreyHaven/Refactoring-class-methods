@@ -14,10 +14,17 @@ class AbstractMelonOrder(object):
         self.order_type = order_type
         self.tax = tax
         
+    def get_base_price(self):
+        """Determines base price based on Splurge Pricing for every new order"""
+        new_base_price = random.randint(5, 9)
+
+        return new_base_price
+
     def get_total(self):
         """Calculate price, including tax."""
+        
+        base_price = self.get_base_price()
 
-        base_price = 5
         if self.species == "Christmas":
             base_price *= 1.5
         
@@ -33,7 +40,7 @@ class AbstractMelonOrder(object):
 
         self.shipped = True
 
-
+    
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
 
