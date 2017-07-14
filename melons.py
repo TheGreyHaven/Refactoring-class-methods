@@ -1,5 +1,6 @@
 """Classes for melon orders."""
 
+import random
 
 class AbstractMelonOrder(object):
     """An abstract base class that other Melon Orders inherit from."""
@@ -61,6 +62,7 @@ class GovernmentMelonOrder(AbstractMelonOrder):
 
         self.passed_inspection = False
 
-    def mark_inspection(self):
-        self.passed_inspection = True
+
+    def mark_inspection(self, passed):
+        self.passed_inspection = passed
 
